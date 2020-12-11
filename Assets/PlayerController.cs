@@ -6,7 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rigidbodyP;
     public float moveSpeed = 5f;
-    public bool isGrounded = false;
+    public bool isGrounded = true;
+    private int health;
+    private int maxHealth;
     [SerializeField]
     private float moveInput;
 
@@ -30,6 +32,14 @@ public class PlayerController : MonoBehaviour
         {
             rigidbodyP.AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
             anim.SetTrigger("Jumps");
+        }
+    }
+
+    public void AttributeManager()
+    {
+        if(health == 0)
+        {
+            Destroy(this.gameObject);
         }
     }
     void CharacterAnimations()

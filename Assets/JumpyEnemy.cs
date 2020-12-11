@@ -15,13 +15,11 @@ public class JumpyEnemy : EnemyClass
     {
         float marginOfError = .03f;
         RaycastHit2D raycastHit = Physics2D.Raycast(colliderbox2D.bounds.center, Vector2.down, colliderbox2D.bounds.extents.y + marginOfError, groundLayerMask);
-        Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
     }
-    public bool groundbool;
+
     private void EnemyJump()
     { 
-        groundbool = isGrounded();
         float finishTimer = 3;
         timer += Time.deltaTime;
         if (timer >= finishTimer)
